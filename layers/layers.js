@@ -28,19 +28,12 @@ url: 'https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}'
 });
 
 var lyr_OSMStandard_3 = new ol.layer.Tile({
-            'title': 'OSM Standard',
-            'opacity': 1.000000,
-            
-            
-            source: new ol.source.XYZ({
-        attributions: ' &nbsp &middot; <a href="https://www.openstreetmap.org/copyright">© OpenStreetMap contributors, CC-BY-SA</a>',
-        url: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',  // ← https, not http
-        tileLoadFunction: function(imageTile, src) {
-            var img = imageTile.getImage();
-            img.referrerPolicy = 'origin';
-            img.src = src;
-        }
-    })
+'title': 'OSM Standard',
+'opacity': 1.000000,
+source: new ol.source.XYZ({
+attributions: ' &nbsp · <a href="https://www.openstreetmap.org/copyright">© OpenStreetMap contributors, CC-BY-SA</a>',
+url: 'http://tile.openstreetmap.org/{z}/{x}/{y}.png'
+})
 });
 
 
@@ -82,11 +75,6 @@ var outputFieldAliases = {
 'sig': 'sig',
 'oth': 'oth',
 'sum': 'sum',
-'eng_per': 'eng_per',
-'sco_per': 'sco_per',
-'gae_per': 'gae_per',
-'sig_per': 'sig_per',
-'oth_per': 'oth_per',
 'English': 'English',
 'Scots': 'Scots',
 'Gaelic': 'Gaelic',
@@ -102,11 +90,6 @@ var outputFieldImages = {
 'sig': 'TextEdit',
 'oth': 'TextEdit',
 'sum': 'TextEdit',
-'eng_per': 'TextEdit',
-'sco_per': 'TextEdit',
-'gae_per': 'TextEdit',
-'sig_per': 'TextEdit',
-'oth_per': 'TextEdit',
 'English': 'TextEdit',
 'Scots': 'TextEdit',
 'Gaelic': 'TextEdit',
@@ -122,11 +105,6 @@ var outputFieldLabels = {
 'sig': 'hidden field',
 'oth': 'hidden field',
 'sum': 'hidden field',
-'eng_per': 'hidden field',
-'sco_per': 'hidden field',
-'gae_per': 'hidden field',
-'sig_per': 'hidden field',
-'oth_per': 'hidden field',
 'English': 'inline label - always visible',
 'Scots': 'inline label - always visible',
 'Gaelic': 'inline label - always visible',
