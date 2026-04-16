@@ -28,12 +28,19 @@ url: 'https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}'
 });
 
 var lyr_OSMStandard_3 = new ol.layer.Tile({
-'title': 'OSM Standard',
-'opacity': 1.000000,
-source: new ol.source.XYZ({
-attributions: ' &nbsp · <a href="https://www.openstreetmap.org/copyright">© OpenStreetMap contributors, CC-BY-SA</a>',
-url: 'http://tile.openstreetmap.org/{z}/{x}/{y}.png'
-})
+            'title': 'OSM Standard',
+            'opacity': 1.000000,
+            
+            
+            source: new ol.source.XYZ({
+        attributions: ' &nbsp &middot; <a href="https://www.openstreetmap.org/copyright">© OpenStreetMap contributors, CC-BY-SA</a>',
+        url: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',  // ← https, not http
+        tileLoadFunction: function(imageTile, src) {
+            var img = imageTile.getImage();
+            img.referrerPolicy = 'origin';
+            img.src = src;
+        }
+    })
 });
 
 
